@@ -2,6 +2,7 @@ package com.example.careering;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -20,7 +21,7 @@ import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-public class LoginScreen extends AppCompatActivity {
+public class LoginScreen extends AppCompatActivity implements View.OnClickListener{
 
     EditText username;
     EditText password;
@@ -32,6 +33,9 @@ public class LoginScreen extends AppCompatActivity {
 
         username = findViewById(R.id.usernameLoginText);
         password = findViewById(R.id.passwordLoginText);
+
+        ConstraintLayout loginLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+        loginLayout.setOnClickListener(this);
     }
 
     private void InitializeParseServer() {
@@ -54,8 +58,7 @@ public class LoginScreen extends AppCompatActivity {
                     if(user.getBoolean("emailVerified"))
                     {
                         Toast.makeText(getApplicationContext(), getApplicationContext().getResources().getString(R.string.word_welcome) + ", " + username.getText().toString() + "!", Toast.LENGTH_SHORT).show();
-                        Intent i = new Intent(getApplicationContext(), HomepageScreen.class);
-                        startActivity(i);
+                        goToHomepage();
                     }
                     else
                     {
@@ -80,6 +83,19 @@ public class LoginScreen extends AppCompatActivity {
     public void goToHomepage() {
         Intent intent = new Intent(getApplicationContext(), HomepageScreen.class);
         startActivity(intent);
+    }
+
+
+    //To hide keyboard
+    @Override
+    public void onClick(View view) {
+
+        if(view.getId() == R.id.constraintLayout)
+        {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+
     }
 
     @Override
