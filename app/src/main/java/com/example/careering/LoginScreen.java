@@ -21,7 +21,7 @@ import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-public class LoginScreen extends AppCompatActivity implements View.OnClickListener{
+public class LoginScreen extends Base{
 
     EditText username;
     EditText password;
@@ -33,20 +33,9 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
         username = findViewById(R.id.usernameLoginText);
         password = findViewById(R.id.passwordLoginText);
+        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
+        constraintLayout.setOnClickListener(this);
 
-        ConstraintLayout loginLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
-        loginLayout.setOnClickListener(this);
-    }
-
-    private void InitializeParseServer() {
-        Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId(getString(R.string.back4app_app_id))
-                // if defined
-                .clientKey(getString(R.string.back4app_client_key))
-                .server(getString(R.string.back4app_server_url))
-                .build()
-        );
-        ParseInstallation.getCurrentInstallation().saveInBackground();
     }
 
     public void logIn(View view) {
@@ -78,40 +67,5 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     public void signUp(View view) {
         Intent intent = new Intent(getApplicationContext(), SignUpScreen.class);
         startActivity(intent);
-    }
-
-    public void goToHomepage() {
-        Intent intent = new Intent(getApplicationContext(), HomepageScreen.class);
-        startActivity(intent);
-    }
-
-
-    //To hide keyboard
-    @Override
-    public void onClick(View view) {
-
-        if(view.getId() == R.id.constraintLayout)
-        {
-            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-        }
-
-    }
-
-    @Override
-    public void onBackPressed() {
-
-        new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle(getApplicationContext().getResources().getString(R.string.word_quit))
-                .setMessage(getApplicationContext().getResources().getString(R.string.word_do_you_want_to_quit))
-                .setPositiveButton(getApplicationContext().getResources().getString(R.string.word_yes), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        moveTaskToBack(true);
-                    }
-                })
-                .setNegativeButton(getApplicationContext().getResources().getString(R.string.word_cancel), null)
-                .show();
     }
 }
