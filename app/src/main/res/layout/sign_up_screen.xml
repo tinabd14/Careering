@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".SignUpScreen">
+
+    <ImageView
+        android:id="@+id/signUpLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login_icon" />
+
+
+    <TextView
+        android:id="@+id/CompanyName"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signUpLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:shadowColor="@android:color/white"
+        android:text="Careering"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signUpLogo" />
+
+
+    <EditText
+        android:id="@+id/nameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CompanyName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="text"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@+id/usernameSignUpText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CompanyName" />
+
+
+    <EditText
+        android:id="@+id/usernameSignUpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="text"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@+id/emailSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+
+    <EditText
+        android:id="@+id/emailSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/usernameSignUpText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Email address"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/passwordSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameSignUpText" />
+
+
+    <EditText
+        android:id="@+id/passwordSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/passwordSignUpAgain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailSignUp" />
+
+
+    <EditText
+        android:id="@+id/passwordSignUpAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Password (Again)"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordSignUp" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordSignUpAgain"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:onClick="signUp"
+        android:text="SignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordSignUpAgain" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

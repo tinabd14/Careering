@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".LoginScreen">
+
+    <ImageView
+        android:id="@+id/menuLogoLogIn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/emailLoginText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/login_icon" />
+
+    <TextView
+        android:id="@+id/CompanyName"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/menuLogoLogIn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:shadowColor="@android:color/white"
+        android:text="Careering"
+        android:textAllCaps="false"
+        android:textSize="30sp"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuLogoLogIn" />
+
+    <EditText
+        android:id="@+id/emailLoginText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CompanyName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:ems="12"
+        android:hint="Enter your email"
+        android:inputType="text"
+        android:maxLines="1"
+        app:layout_constraintBottom_toTopOf="@+id/passwordLoginText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CompanyName" />
+
+    <EditText
+        android:id="@+id/passwordLoginText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailLoginText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:ems="12"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/LoginButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailLoginText" />
+
+    <Button
+        android:id="@+id/LoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordLoginText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:onClick="logIn"
+        android:text="Login"
+        app:layout_constraintBottom_toTopOf="@+id/signUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLoginText" />
+
+    <TextView
+        android:id="@+id/signUp"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LoginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:onClick="signUp"
+        android:shadowColor="@android:color/white"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textColor="@android:color/holo_blue_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LoginButton" />
+
+    <!--
+        app:layout_constraintBottom_toTopOf="@+id/forgotPassword" -->
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
