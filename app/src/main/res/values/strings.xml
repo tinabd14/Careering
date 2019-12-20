@@ -4,4 +4,11 @@
     <!-- Change the following strings as required -->
     <string name="back4app_app_id">WpbAEL3t7MEfQ0wlZBATnlZLVPzag5IgiYhOQxPZ</string>
     <string name="back4app_client_key">dboH49FQysVac2nwPGtyhwqDom1Y8JKCWCcP1ggT</string>
+    <string name="word_quit">Quit?</string>
+    <string name="word_do_you_want_to_quit">Do you want to quit?</string>
+    <string name="word_yes">Yes</string>
+    <string name="word_cancel">Cancel</string>
+    <string name="word_welcome">Welcome</string>
+    <string name="word_verif_email">Please, verify your email address first</string>
+    <string name="word_retry">Try again</string>
 </resources>

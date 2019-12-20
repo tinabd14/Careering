@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
@@ -15,7 +16,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailLoginText"
+        app:layout_constraintBottom_toTopOf="@+id/usernameLoginText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,22 +35,22 @@
         android:shadowColor="@android:color/white"
         android:text="Careering"
         android:textAllCaps="false"
-        android:textSize="30sp"
         android:textColor="@android:color/holo_blue_dark"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menuLogoLogIn" />
 
     <EditText
-        android:id="@+id/emailLoginText"
+        android:id="@+id/usernameLoginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/CompanyName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:ems="12"
-        android:hint="Enter your email"
+        android:hint="Enter your username"
         android:inputType="text"
         android:maxLines="1"
         app:layout_constraintBottom_toTopOf="@+id/passwordLoginText"
@@ -62,7 +63,7 @@
         android:id="@+id/passwordLoginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/emailLoginText"
+        android:layout_below="@+id/usernameLoginText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:ems="12"
@@ -72,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLoginText" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameLoginText" />
 
     <Button
         android:id="@+id/LoginButton"
@@ -110,9 +111,6 @@
 
     <!--
         app:layout_constraintBottom_toTopOf="@+id/forgotPassword" -->
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
