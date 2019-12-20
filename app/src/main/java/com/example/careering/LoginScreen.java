@@ -27,7 +27,7 @@ public class LoginScreen extends Base{
 
         username = findViewById(R.id.usernameLoginText);
         password = findViewById(R.id.passwordLoginText);
-        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout2);
+        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout1);
         constraintLayout.setOnClickListener(this);
     }
 

@@ -45,7 +45,7 @@
 
 
     <EditText
-        android:id="@+id/nameText"
+        android:id="@+id/nameTextProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/CompanyName"
@@ -66,7 +66,7 @@
         android:id="@+id/usernameSignUpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/nameText"
+        android:layout_below="@+id/nameTextProfile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:ems="10"
@@ -77,7 +77,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+        app:layout_constraintTop_toBottomOf="@+id/nameTextProfile" />
 
 
     <EditText
@@ -90,7 +90,7 @@
         android:ems="10"
         android:hint="Email address"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/passwordSignUp"
+        app:layout_constraintBottom_toTopOf="@+id/passwordProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +98,7 @@
 
 
     <EditText
-        android:id="@+id/passwordSignUp"
+        android:id="@+id/passwordProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/emailSignUp"
@@ -117,7 +117,7 @@
         android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordSignUp"
+        android:layout_below="@+id/passwordProfile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:onClick="signUpUser"
@@ -125,7 +125,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordSignUp" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordProfile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

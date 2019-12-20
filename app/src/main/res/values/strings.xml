@@ -13,4 +13,5 @@
     <string name="word_retry">Please, try again</string>
     <string name="word_accCreated">Account created successfully</string>
     <string name="word_error">Error</string>
+    <string name="changed_success">Changed successfully!</string>
 </resources>

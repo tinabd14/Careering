@@ -24,10 +24,10 @@ public class SignUpScreen extends Base {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_screen);
 
-        name = findViewById(R.id.nameText);
+        name = findViewById(R.id.nameTextProfile);
         username = findViewById(R.id.usernameSignUpText);
         email = findViewById(R.id.emailSignUp);
-        password = findViewById(R.id.passwordSignUp);
+        password = findViewById(R.id.passwordProfile);
 
         ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout2);
         constraintLayout.setOnClickListener(this);

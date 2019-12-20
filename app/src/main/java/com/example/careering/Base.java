@@ -3,10 +3,14 @@ package com.example.careering;
 import android.content.Intent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
+
+import java.util.Objects;
 
 abstract class Base extends AppCompatActivity implements View.OnClickListener{
     @Override
@@ -17,10 +21,12 @@ abstract class Base extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
 
-        if(view.getId() == R.id.constraintLayout2)
+        if(!(view instanceof EditText))
         {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            if (inputMethodManager != null) {
+                inputMethodManager.hideSoftInputFromWindow(Objects.requireNonNull(getCurrentFocus()).getWindowToken(), 0);
+            }
         }
 
     }
