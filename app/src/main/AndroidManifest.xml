@@ -3,6 +3,7 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.careering">
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        android:name=".LoginScreen"
+        <activity android:name=".DisplaySinglePostScreen"></activity>
+        <activity android:name=".CreatePostScreen" />
+
         <meta-data
             android:name="com.parse.SERVER_URL"
             android:value="@string/back4app_server_url" />
@@ -26,7 +29,8 @@
         <meta-data
             android:name="com.parse.CLIENT_KEY"
             android:value="@string/back4app_client_key" />
-        <activity android:name=".HomepageScreen"></activity>
+
+        <activity android:name=".HomepageScreen" />
         <activity android:name=".ProfileScreen" />
         <activity android:name=".SignUpScreen" />
         <activity android:name=".LoginScreen">

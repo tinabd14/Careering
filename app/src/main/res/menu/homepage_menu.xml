@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/seeProfile"
+            android:title="My Profile Info"/>
+
+        <item
+            android:id="@+id/createPost"
+            android:title="Create a Post"/>
+
+        <item
+            android:id="@+id/logOut"
+            android:title="Log Out"/>
+    </group>
+</menu>
