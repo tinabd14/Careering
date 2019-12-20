@@ -25,6 +25,9 @@ public class LoginScreen extends Base{
         setContentView(R.layout.login_screen);
         InitializeParseServer();
 
+        if(ParseUser.getCurrentUser() != null)
+            goToHomepage();
+
         username = findViewById(R.id.usernameLoginText);
         password = findViewById(R.id.passwordLoginText);
         ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout1);
