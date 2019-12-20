@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.DialogInterface;
@@ -21,12 +22,14 @@ import com.parse.ParseUser;
 public class HomepageScreen extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
+    private ParseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage_screen);
 
+        user = ParseUser.getCurrentUser();
         mDrawerLayout = findViewById(R.id.drawer_layout);
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
@@ -38,7 +41,7 @@ public class HomepageScreen extends AppCompatActivity {
                     @Override
                     public void onDrawerOpened(View drawerView) {
                         TextView navTitle = (TextView) findViewById(R.id.navHeaderTitle);
-                        navTitle.setText(ParseUser.getCurrentUser().getUsername());
+                        navTitle.setText("Hər vaxtın xeyir, " + user.getUsername());
                     }
 
                     @Override
@@ -74,8 +77,8 @@ public class HomepageScreen extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), CreatePostScreen.class);
                             startActivity(intent);
                         }
-                        else if(menuItem.getTitle().toString().matches("Log out")) {
-                            if(ParseUser.getCurrentUser() != null) {
+                        else if(menuItem.getTitle().toString().matches("Log Out")) {
+                            if(user != null) {
                                 Toast.makeText(getApplicationContext(), "Logged out", Toast.LENGTH_SHORT).show();
                                 ParseUser.logOut();
                                 Intent intent = new Intent(getApplicationContext(), LoginScreen.class);
@@ -90,6 +93,16 @@ public class HomepageScreen extends AppCompatActivity {
                     }
                 });
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
