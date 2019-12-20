@@ -11,4 +11,6 @@
     <string name="word_welcome">Welcome</string>
     <string name="word_verif_email">Please, verify your email address first</string>
     <string name="word_retry">Please, try again</string>
+    <string name="word_accCreated">Account created successfully</string>
+    <string name="word_error">Error</string>
 </resources>

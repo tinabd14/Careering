@@ -1,24 +1,16 @@
 package com.example.careering;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
 
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
-import com.parse.ParseInstallation;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 public class LoginScreen extends Base{
@@ -33,9 +25,8 @@ public class LoginScreen extends Base{
 
         username = findViewById(R.id.usernameLoginText);
         password = findViewById(R.id.passwordLoginText);
-        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout);
+        ConstraintLayout constraintLayout = findViewById(R.id.constraintLayout2);
         constraintLayout.setOnClickListener(this);
-
     }
 
     public void logIn(View view) {

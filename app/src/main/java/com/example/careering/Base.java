@@ -7,7 +7,6 @@ import android.view.inputmethod.InputMethodManager;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
@@ -39,7 +38,7 @@ abstract class Base extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
 
-        if(view.getId() == R.id.constraintLayout)
+        if(view.getId() == R.id.constraintLayout2)
         {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
