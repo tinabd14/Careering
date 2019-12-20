@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".DisplaySinglePostScreen"></activity>
+        <activity android:name=".ForgetPasswordScreen"></activity>
+        <activity android:name=".DisplaySinglePostScreen" />
         <activity android:name=".CreatePostScreen" />
 
         <meta-data

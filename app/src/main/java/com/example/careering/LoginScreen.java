@@ -65,6 +65,11 @@ public class LoginScreen extends Base{
         startActivity(intent);
     }
 
+    public void forgetPassword(View view) {
+        Intent intent = new Intent(getApplicationContext(), ForgetPasswordScreen.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
 
