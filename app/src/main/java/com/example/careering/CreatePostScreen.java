@@ -29,9 +29,8 @@ public class CreatePostScreen extends AppCompatActivity {
     }
 
     public void createPost(View view) {
-        if (postTitle.getText().toString() != "" || postCompany.getText().toString() != "" ||
-                postPublisherName.getText().toString() != "" ||
-                postDescription.getText().toString() != "") {
+        if (postTitle.getText().toString().equals("") || postCompany.getText().toString().equals("") ||
+                postPublisherName.getText().toString().equals("")) {
             Toast.makeText(this, "Please fill all fields before publishing", Toast.LENGTH_LONG).show();
         }
         else {
