@@ -21,7 +21,7 @@
         >
 
         <EditText
-            android:id="@+id/postTitle"
+            android:id="@+id/createPostTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Title"
@@ -30,13 +30,13 @@
             android:background="@drawable/textview_borders"
             android:textSize="25sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/postCompany"
+            app:layout_constraintBottom_toTopOf="@id/createPostCompany"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"/>
 
         <EditText
-            android:id="@+id/postCompany"
+            android:id="@+id/createPostCompany"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Company Name"
@@ -45,14 +45,14 @@
             android:background="@drawable/textview_borders"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/postPublisherName"
+            app:layout_constraintBottom_toTopOf="@id/createPostPublisherName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/postTitle"/>
+            app:layout_constraintTop_toBottomOf="@+id/createPostTitle"/>
 
         <EditText
-            android:id="@+id/postPublisherName"
+            android:id="@+id/createPostPublisherName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Publisher's Name"
@@ -61,14 +61,14 @@
             android:background="@drawable/textview_borders"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/postDescription"
+            app:layout_constraintBottom_toTopOf="@id/createPostDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/postCompany"/>
+            app:layout_constraintTop_toBottomOf="@+id/createPostCompany"/>
 
         <EditText
-            android:id="@+id/postDescription"
+            android:id="@+id/createPostDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="false"
@@ -82,7 +82,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/postPublisherName"/>
+            app:layout_constraintTop_toBottomOf="@+id/createPostPublisherName"/>
 
         <Button
             android:id="@+id/publishButton"
@@ -97,7 +97,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/postDescription"/>
+            app:layout_constraintTop_toBottomOf="@+id/createPostDescription"/>
 
     </LinearLayout>
 
