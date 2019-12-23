@@ -112,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordProfile" />
 
     <EditText
-        android:id="@+id/InfoApplicant"
+        android:id="@+id/InfoProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/positionProfile"
@@ -132,7 +132,7 @@
         android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/InfoApplicant"
+        android:layout_below="@+id/InfoProfile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:onClick="saveProfileInfo"
@@ -140,7 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InfoApplicant" />
+        app:layout_constraintTop_toBottomOf="@+id/InfoProfile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
