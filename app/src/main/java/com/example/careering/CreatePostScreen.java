@@ -52,7 +52,6 @@ public class CreatePostScreen extends AppCompatActivity {
 
             Toast.makeText(this, "The post published successfully", Toast.LENGTH_LONG).show();
 
-            //TODO : add the post to database
             Intent intent = new Intent(getApplicationContext(), HomepageScreen.class);
             startActivity(intent);
         }

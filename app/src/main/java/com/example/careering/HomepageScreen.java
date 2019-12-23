@@ -218,6 +218,13 @@ public class HomepageScreen extends AppCompatActivity implements AdapterForSearc
 
     @Override
     public void onItemClick(View view, int position) {
+        searchAdapter.getItem(position);
 
+        Intent intent = new Intent(getApplicationContext(), DisplaySinglePostScreen.class);
+        intent.putExtra("POSTNAME", searchAdapter.getItem(position).getName());
+        intent.putExtra("POSTCOMPANY", searchAdapter.getItem(position).getCompany());
+        intent.putExtra("POSTPUBLISHERNAME", searchAdapter.getItem(position).getPublisherName());
+        intent.putExtra("POSTDESCRIPTION", searchAdapter.getItem(position).getDescription());
+        startActivity(intent);
     }
 }
