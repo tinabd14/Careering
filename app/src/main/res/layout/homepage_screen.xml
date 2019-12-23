@@ -25,21 +25,20 @@
                 android:id = "@+id/searchInHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="searchInHome"
                 />
 
         </androidx.appcompat.widget.Toolbar>
 
-        <ListView
-            android:id="@+id/news_feed_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/toolbar"
-            android:layout_marginTop="0dp">
-        </ListView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/postListInSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="40dp"
+            android:smoothScrollbar="true"/>
 
     </RelativeLayout>
-
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"

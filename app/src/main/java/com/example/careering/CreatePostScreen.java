@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+
 public class CreatePostScreen extends AppCompatActivity {
 
 
@@ -26,14 +30,27 @@ public class CreatePostScreen extends AppCompatActivity {
         postPublisherName = findViewById(R.id.createPostPublisherName);
         postDescription = findViewById(R.id.createPostDescription);
 
+        postPublisherName.setText(ParseUser.getCurrentUser().get("name").toString());
+
     }
 
     public void createPost(View view) {
         if (postTitle.getText().toString().equals("") || postCompany.getText().toString().equals("") ||
                 postPublisherName.getText().toString().equals("")) {
+
             Toast.makeText(this, "Please fill all fields before publishing", Toast.LENGTH_LONG).show();
         }
         else {
+
+            ParseObject post = new ParseObject("Post");
+            post.put("postTitle", postTitle.getText().toString());
+            post.put("postName", postPublisherName.getText().toString());
+            post.put("postCompany", postCompany.getText().toString());
+            post.put("postDescription", postDescription.getText().toString());
+            post.put("postUserID", ParseUser.getCurrentUser().getObjectId().toString());
+            post.saveInBackground();
+
+            Toast.makeText(this, "The post published successfully", Toast.LENGTH_LONG).show();
 
             //TODO : add the post to database
             Intent intent = new Intent(getApplicationContext(), HomepageScreen.class);
