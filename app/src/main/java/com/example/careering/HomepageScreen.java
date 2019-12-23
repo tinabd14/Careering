@@ -165,6 +165,7 @@ public class HomepageScreen extends AppCompatActivity implements AdapterForSearc
                 if (e == null) {
                     for (ParseObject object : list) {
                         Post post = new Post();
+                        post.setPostID(object.getObjectId());
                         post.setName(object.get("postTitle").toString());
                         post.setCompany(object.get("postCompany").toString());
                         post.setPublisherName(object.get("postName").toString());
@@ -225,6 +226,7 @@ public class HomepageScreen extends AppCompatActivity implements AdapterForSearc
         intent.putExtra("POSTCOMPANY", searchAdapter.getItem(position).getCompany());
         intent.putExtra("POSTPUBLISHERNAME", searchAdapter.getItem(position).getPublisherName());
         intent.putExtra("POSTDESCRIPTION", searchAdapter.getItem(position).getDescription());
+        intent.putExtra("POSTID", searchAdapter.getItem(position).getPostID());
         startActivity(intent);
     }
 }

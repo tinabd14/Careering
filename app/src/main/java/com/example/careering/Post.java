@@ -9,7 +9,18 @@ public class Post{
     private String publisherName;
     private String description;
     private String userID;
+    private String postID;
     public ArrayList<String> applicants;
+
+    public String getPostID()
+    {
+        return postID;
+    }
+
+    public void setPostID(String postID)
+    {
+        this.postID = postID;
+    }
 
     public Post(){
         applicants = new ArrayList<>();
