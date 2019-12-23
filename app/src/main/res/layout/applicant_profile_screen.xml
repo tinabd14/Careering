@@ -1,9 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ApplicantProfileScreen">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/constraintLayout3"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".ApplicantProfileScreen">
+
+<ImageView
+    android:id="@+id/ProfileLogo"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="80dp"
+    android:layout_marginEnd="8dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:srcCompat="@drawable/login_icon" />
+
+
+<TextView
+    android:id="@+id/applicantScreenName"
+    style="?android:attr/borderlessButtonStyle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/ProfileLogo"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:background="@android:color/white"
+    android:shadowColor="@android:color/white"
+    android:text="Applicant's Info"
+    android:textAllCaps="false"
+    android:textColor="@android:color/holo_blue_dark"
+    android:textSize="30sp"
+    app:layout_constraintBottom_toTopOf="@+id/nameTextApplicant"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ProfileLogo" />
+
+
+<TextView
+    android:id="@+id/nameTextApplicant"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/positionApplicant"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:ems="15"
+    android:textSize="18sp"
+    android:hint="Name"
+    android:maxLines="1"
+    app:layout_constraintBottom_toTopOf="@+id/positionApplicant"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/applicantScreenName" />
+
+
+<TextView
+    android:id="@+id/positionApplicant"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/nameTextApplicant"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:ems="15"
+    android:hint="Job/Company Position"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toTopOf="@+id/InfoProfile"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/nameTextApplicant" />
+
+<TextView
+    android:id="@+id/InfoProfile"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/positionApplicant"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:minLines="5"
+    android:ems="15"
+    android:hint="Profile Information"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toTopOf="@+id/sendEmailButton"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/positionApplicant" />
+
+<Button
+    android:id="@+id/sendEmailButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/InfoProfile"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:onClick="sendEmail"
+    android:text="Save"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/InfoProfile" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
