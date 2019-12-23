@@ -50,7 +50,7 @@
         android:layout_below="@+id/ScreenName"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:ems="10"
+        android:ems="15"
         android:hint="Name"
         android:inputType="text"
         android:maxLines="1"
@@ -68,7 +68,7 @@
         android:layout_below="@+id/nameTextProfile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:ems="10"
+        android:ems="15"
         android:hint="Username"
         android:inputType="text"
         android:maxLines="1"
@@ -86,21 +86,53 @@
         android:layout_below="@+id/usernameTextProfile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:ems="10"
+        android:ems="15"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+        app:layout_constraintBottom_toTopOf="@+id/positionProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameTextProfile" />
 
+    <EditText
+        android:id="@+id/positionProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:ems="15"
+        android:inputType="text"
+        android:hint="Job/Company Position"
+        app:layout_constraintBottom_toTopOf="@+id/InfoProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordProfile" />
+
+    <EditText
+        android:id="@+id/InfoProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/positionProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:ems="15"
+        android:minLines="5"
+        android:inputType="text"
+        android:hint="Profile Information"
+        app:layout_constraintBottom_toTopOf="@+id/signUpButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/positionProfile" />
 
     <Button
         android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordProfile"
+        android:layout_below="@+id/InfoProfile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:onClick="saveProfileInfo"
@@ -108,7 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/InfoProfile" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

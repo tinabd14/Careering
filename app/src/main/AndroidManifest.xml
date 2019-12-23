@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ApplicantProfileScreen"></activity>
         <activity android:name=".CreateTestScreen" />
         <activity android:name=".DisplayTestScreen" />
         <activity android:name=".ForgetPasswordScreen" />
