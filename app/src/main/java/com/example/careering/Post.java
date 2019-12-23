@@ -1,5 +1,7 @@
 package com.example.careering;
 
+import java.util.ArrayList;
+
 public class Post{
 
     private String name;
@@ -7,9 +9,10 @@ public class Post{
     private String publisherName;
     private String description;
     private String userID;
+    public ArrayList<String> applicants;
 
     public Post(){
-
+        applicants = new ArrayList<>();
     }
 
     public String getName() {

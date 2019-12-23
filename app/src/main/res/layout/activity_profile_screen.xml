@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -129,7 +129,7 @@
         app:layout_constraintTop_toBottomOf="@+id/positionProfile" />
 
     <Button
-        android:id="@+id/signUpButton"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/InfoProfile"
@@ -138,9 +138,24 @@
         android:onClick="saveProfileInfo"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/seePostsButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InfoProfile" />
+
+    <Button
+    android:id="@+id/seePostsButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/saveButton"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="20dp"
+    android:onClick="seeYourPosts"
+    android:text="See Your Posts"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.5"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/saveButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

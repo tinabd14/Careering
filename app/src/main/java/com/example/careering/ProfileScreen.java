@@ -72,4 +72,9 @@ public class ProfileScreen extends Base {
             Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void seeYourPosts(View view) {
+        Intent i = new Intent(getApplicationContext(), DisplayYourPosts.class);
+        startActivity(i);
+    }
 }
