@@ -28,7 +28,7 @@ abstract class Base extends AppCompatActivity implements View.OnClickListener{
         if(!(view instanceof EditText))
         {
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            if (inputMethodManager != null) {
+            if (inputMethodManager != null && getCurrentFocus() != null && getCurrentFocus().getWindowToken() != null) {
                 inputMethodManager.hideSoftInputFromInputMethod(getCurrentFocus().getWindowToken(), 0);
             }
         }
