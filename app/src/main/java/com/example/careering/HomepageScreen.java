@@ -28,9 +28,10 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
-public class HomepageScreen extends AppCompatActivity implements AdapterForSearch.ItemClickListener {
+public class HomepageScreen extends Base implements AdapterForSearch.ItemClickListener {
 
     private DrawerLayout mDrawerLayout;
     private ParseUser user;
@@ -55,7 +56,6 @@ public class HomepageScreen extends AppCompatActivity implements AdapterForSearc
 
         getItemsFromDatabase();
 
-
         mDrawerLayout.addDrawerListener(
                 new DrawerLayout.DrawerListener() {
                     @Override
@@ -66,7 +66,15 @@ public class HomepageScreen extends AppCompatActivity implements AdapterForSearc
                     @Override
                     public void onDrawerOpened(View drawerView) {
                         TextView navTitle = (TextView) findViewById(R.id.navHeaderTitle);
-                        navTitle.setText("Hər vaxtın xeyir, " + user.getUsername());
+                        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+                        if(hour <= 5)
+                            navTitle.setText("Good Night, " + user.getUsername() + " !");
+                        if(hour <= 12)
+                            navTitle.setText("Good Morning, " + user.getUsername() + " !");
+                        if(hour <= 18)
+                            navTitle.setText("Good Afternoon, " + user.getUsername() + " !");
+                        else
+                            navTitle.setText("Good Evening, " + user.getUsername() + " !");
                     }
 
                     @Override
@@ -130,8 +138,14 @@ public class HomepageScreen extends AppCompatActivity implements AdapterForSearc
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                getData(newText);
+                if (!isConnected(HomepageScreen.this))
+                    Toast.makeText(getApplicationContext(), "No Internet.\nPlease, check your internet connection", Toast.LENGTH_LONG).show();
+                else {
+                    getData(newText);
+                    return true;
+                }
                 return false;
+
             }
         });
     }
@@ -159,35 +173,37 @@ public class HomepageScreen extends AppCompatActivity implements AdapterForSearc
     }
 
     private void getItemsFromDatabase() {
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
-        query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> list, ParseException e) {
-                if (e == null) {
-                    for (ParseObject object : list) {
-                        Post post = new Post();
-                        post.setPostID(object.getObjectId());
-                        post.setName(object.get("postTitle").toString());
-                        post.setCompany(object.get("postCompany").toString());
-                        post.setPublisherName(object.get("postName").toString());
-                        post.setDescription(object.get("postDescription").toString());
-                        post.setUserID(object.get("postUserID").toString());
+        if (!isConnected(HomepageScreen.this))
+            Toast.makeText(getApplicationContext(), "No Internet.\nPlease, check your internet connection", Toast.LENGTH_LONG).show();
+        else {
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
+            query.findInBackground(new FindCallback<ParseObject>() {
+                public void done(List<ParseObject> list, ParseException e) {
+                    if (e == null) {
+                        for (ParseObject object : list) {
+                            Post post = new Post();
+                            post.setPostID(object.getObjectId());
+                            post.setName(object.get("postTitle").toString());
+                            post.setCompany(object.get("postCompany").toString());
+                            post.setPublisherName(object.get("postName").toString());
+                            post.setDescription(object.get("postDescription").toString());
+                            post.setUserID(object.get("postUserID").toString());
 
-                        posts.add(post);
+                            posts.add(post);
 
-                        searchListRV = findViewById(R.id.postListInSearch);
-                        searchListRV.setLayoutManager(new LinearLayoutManager(HomepageScreen.this));
-                        searchAdapter = new AdapterForSearch(HomepageScreen.this, posts);
-                        searchAdapter.setClickListener(HomepageScreen.this);
-                        searchListRV.setAdapter(searchAdapter);
+                            searchListRV = findViewById(R.id.postListInSearch);
+                            searchListRV.setLayoutManager(new LinearLayoutManager(HomepageScreen.this));
+                            searchAdapter = new AdapterForSearch(HomepageScreen.this, posts);
+                            searchAdapter.setClickListener(HomepageScreen.this);
+                            searchListRV.setAdapter(searchAdapter);
+                        }
+
+                    } else {
+                        // something went wrong
                     }
-
-                } else {
-                    // something went wrong
                 }
-            }
-        });
-
-
+            });
+        }
     }
 
     @Override
@@ -219,14 +235,18 @@ public class HomepageScreen extends AppCompatActivity implements AdapterForSearc
 
     @Override
     public void onItemClick(View view, int position) {
-        searchAdapter.getItem(position);
+        if (!isConnected(HomepageScreen.this))
+            Toast.makeText(getApplicationContext(), "No Internet Connection...\nPlease, check your internet connection", Toast.LENGTH_LONG).show();
+        else {
+            searchAdapter.getItem(position);
 
-        Intent intent = new Intent(getApplicationContext(), DisplaySinglePostScreen.class);
-        intent.putExtra("POSTNAME", searchAdapter.getItem(position).getName());
-        intent.putExtra("POSTCOMPANY", searchAdapter.getItem(position).getCompany());
-        intent.putExtra("POSTPUBLISHERNAME", searchAdapter.getItem(position).getPublisherName());
-        intent.putExtra("POSTDESCRIPTION", searchAdapter.getItem(position).getDescription());
-        intent.putExtra("POSTID", searchAdapter.getItem(position).getPostID());
-        startActivity(intent);
+            Intent intent = new Intent(getApplicationContext(), DisplaySinglePostScreen.class);
+            intent.putExtra("POSTNAME", searchAdapter.getItem(position).getName());
+            intent.putExtra("POSTCOMPANY", searchAdapter.getItem(position).getCompany());
+            intent.putExtra("POSTPUBLISHERNAME", searchAdapter.getItem(position).getPublisherName());
+            intent.putExtra("POSTDESCRIPTION", searchAdapter.getItem(position).getDescription());
+            intent.putExtra("POSTID", searchAdapter.getItem(position).getPostID());
+            startActivity(intent);
+        }
     }
 }

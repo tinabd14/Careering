@@ -12,7 +12,7 @@ import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
-public class CreatePostScreen extends AppCompatActivity {
+public class CreatePostScreen extends Base {
 
 
     EditText postTitle;
@@ -40,6 +40,8 @@ public class CreatePostScreen extends AppCompatActivity {
 
             Toast.makeText(this, "Please fill all fields before publishing", Toast.LENGTH_LONG).show();
         }
+        else if (!isConnected(CreatePostScreen.this))
+            Toast.makeText(getApplicationContext(), "No Internet Connection...\nPlease, check your internet connection", Toast.LENGTH_LONG).show();
         else {
 
             ParseObject post = new ParseObject("Post");

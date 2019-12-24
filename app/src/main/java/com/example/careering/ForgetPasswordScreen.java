@@ -13,7 +13,7 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.RequestPasswordResetCallback;
 
-public class ForgetPasswordScreen extends AppCompatActivity {
+public class ForgetPasswordScreen extends Base {
 
     EditText email;
     Button submit;
@@ -29,19 +29,23 @@ public class ForgetPasswordScreen extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            ParseUser.requestPasswordResetInBackground(email.getText().toString(),
-                new RequestPasswordResetCallback() {
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            Toast.makeText(ForgetPasswordScreen.this, "Password is sent to your email.", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(getApplicationContext(), LoginScreen.class);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(ForgetPasswordScreen.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
+                if (!isConnected(ForgetPasswordScreen.this))
+                    Toast.makeText(getApplicationContext(), "No Internet Connection...\nPlease, check your internet connection", Toast.LENGTH_LONG).show();
+                else {
+                    ParseUser.requestPasswordResetInBackground(email.getText().toString(),
+                            new RequestPasswordResetCallback() {
+                                public void done(ParseException e) {
+                                    if (e == null) {
+                                        Toast.makeText(ForgetPasswordScreen.this, "Password is sent to your email.", Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(getApplicationContext(), LoginScreen.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Toast.makeText(ForgetPasswordScreen.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                                    }
+                                }
+                            }
+                    );
                 }
-            );
             }
         });
     }

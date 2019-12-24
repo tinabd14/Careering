@@ -46,35 +46,40 @@ public class ProfileScreen extends Base {
 
     public void saveProfileInfo(View view)
     {
-        try
-        {
-            currentUser.setUsername(username.getText().toString());
-            currentUser.put("name", name.getText().toString());
-            currentUser.put("profileInfo", profileInfo.getText().toString());
-            currentUser.put("jobPosition", jobPosition.getText().toString());
-            password.setOnKeyListener(new View.OnKeyListener() {
+        if (!isConnected(ProfileScreen.this))
+            Toast.makeText(getApplicationContext(), "No Internet Connection...\nPlease, check your internet connection", Toast.LENGTH_LONG).show();
+        else {
+            try {
+                currentUser.setUsername(username.getText().toString());
+                currentUser.put("name", name.getText().toString());
+                currentUser.put("profileInfo", profileInfo.getText().toString());
+                currentUser.put("jobPosition", jobPosition.getText().toString());
+                password.setOnKeyListener(new View.OnKeyListener() {
 
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                currentUser.setPassword(password.getText().toString());
-                return true;
+                    @Override
+                    public boolean onKey(View v, int keyCode, KeyEvent event) {
+                        currentUser.setPassword(password.getText().toString());
+                        return true;
+                    }
+                });
+                currentUser.saveInBackground();
+
+                Toast.makeText(getApplicationContext(), R.string.changed_success, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), HomepageScreen.class);
+                startActivity(i);
+
+            } catch (Exception exception) {
+                Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
             }
-            });
-            currentUser.saveInBackground();
-
-            Toast.makeText(getApplicationContext(), R.string.changed_success, Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(getApplicationContext(), HomepageScreen.class);
-            startActivity(i);
-
-        }
-        catch (Exception exception)
-        {
-            Toast.makeText(getApplicationContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
     public void seeYourPosts(View view) {
-        Intent i = new Intent(getApplicationContext(), DisplayYourPosts.class);
-        startActivity(i);
+        if (!isConnected(ProfileScreen.this))
+            Toast.makeText(getApplicationContext(), "No Internet Connection...\nPlease, check your internet connection", Toast.LENGTH_LONG).show();
+        else {
+            Intent i = new Intent(getApplicationContext(), DisplayYourPosts.class);
+            startActivity(i);
+        }
     }
 }

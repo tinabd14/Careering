@@ -20,7 +20,7 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplaySinglePostScreen extends AppCompatActivity {
+public class DisplaySinglePostScreen extends Base {
 
     TextView postTitle;
     TextView postCompany;
@@ -68,27 +68,31 @@ public class DisplaySinglePostScreen extends AppCompatActivity {
         });    }
 
     public void apply(View v) {
-        applyButton.setActivated(false);
-        final ArrayList<String> applicants = new ArrayList<>();
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
-        query.whereEqualTo("objectId", postID);
-        query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> list, ParseException e) {
-                if (e == null) {
-                    for (ParseObject object : list) {
-                        applicants.addAll(object.<String>getList("applicants"));
-                        applicants.add(ParseUser.getCurrentUser().getString("name"));
-                        object.put("applicants", applicants);
-                        object.saveInBackground();
-                    }
+        if (!isConnected(DisplaySinglePostScreen.this))
+            Toast.makeText(getApplicationContext(), "No Internet Connection...\nPlease, check your internet connection", Toast.LENGTH_LONG).show();
+        else {
+            applyButton.setActivated(false);
+            final ArrayList<String> applicants = new ArrayList<>();
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Post");
+            query.whereEqualTo("objectId", postID);
+            query.findInBackground(new FindCallback<ParseObject>() {
+                public void done(List<ParseObject> list, ParseException e) {
+                    if (e == null) {
+                        for (ParseObject object : list) {
+                            applicants.addAll(object.<String>getList("applicants"));
+                            applicants.add(ParseUser.getCurrentUser().getString("name"));
+                            object.put("applicants", applicants);
+                            object.saveInBackground();
+                        }
 
-                } else {
-                    // something went wrong
+                    } else {
+                        // something went wrong
+                    }
                 }
-            }
-        });
-        Toast.makeText(this, "You successfully applied", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(getApplicationContext(), HomepageScreen.class);
-        startActivity(intent);
+            });
+            Toast.makeText(this, "You successfully applied", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(), HomepageScreen.class);
+            startActivity(intent);
+        }
     }
 }

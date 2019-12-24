@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -17,7 +18,7 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DisplayYourPosts extends AppCompatActivity implements  AdapterForSearch.ItemClickListener{
+public class DisplayYourPosts extends Base implements  AdapterForSearch.ItemClickListener{
 
     private ParseUser user;
     private RecyclerView searchListRV;
@@ -71,14 +72,18 @@ public class DisplayYourPosts extends AppCompatActivity implements  AdapterForSe
 
     @Override
     public void onItemClick(View view, int position) {
-        searchAdapter.getItem(position);
-        ArrayList<String> namesOfApplicants = new ArrayList<>();
-        Intent intent = new Intent(getApplicationContext(), DisplayApplicants.class);
+        if (!isConnected(DisplayYourPosts.this))
+            Toast.makeText(getApplicationContext(), "No Internet Connection...\nPlease, check your internet connection", Toast.LENGTH_LONG).show();
+        else {
+            searchAdapter.getItem(position);
+            ArrayList<String> namesOfApplicants = new ArrayList<>();
+            Intent intent = new Intent(getApplicationContext(), DisplayApplicants.class);
 
-        for(String str : searchAdapter.getItem(position).applicants) {
-            namesOfApplicants.add(str);
+            for (String str : searchAdapter.getItem(position).applicants) {
+                namesOfApplicants.add(str);
+            }
+            intent.putStringArrayListExtra("ListOfNamesApplicants", namesOfApplicants);
+            startActivity(intent);
         }
-        intent.putStringArrayListExtra("ListOfNamesApplicants",namesOfApplicants);
-        startActivity(intent);
     }
 }
