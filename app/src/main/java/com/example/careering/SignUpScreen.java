@@ -46,6 +46,8 @@ public class SignUpScreen extends Base {
             user.setEmail(email.getText().toString());
             user.put("name", name.getText().toString());
             user.put("email2", email.getText().toString());
+            user.put("jobPosition", "");
+            user.put("profileInfo", "");
 
             user.signUpInBackground(new SignUpCallback() {
                 @Override
