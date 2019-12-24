@@ -54,8 +54,8 @@ public class CreatePostScreen extends Base {
             post.put("postCompany", postCompany.getText().toString());
             post.put("postDescription", postDescription.getText().toString());
             post.put("postUserID", ParseUser.getCurrentUser().getObjectId().toString());
-            //ArrayList<String> applicants = new ArrayList<>();
-            post.put("applicants","[]");
+            ArrayList<String> applicants = new ArrayList<>();
+            post.put("applicants", applicants);
 
             post.saveInBackground();
 
