@@ -12,6 +12,10 @@ import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class CreatePostScreen extends Base {
 
 
@@ -50,6 +54,9 @@ public class CreatePostScreen extends Base {
             post.put("postCompany", postCompany.getText().toString());
             post.put("postDescription", postDescription.getText().toString());
             post.put("postUserID", ParseUser.getCurrentUser().getObjectId().toString());
+            //ArrayList<String> applicants = new ArrayList<>();
+            post.put("applicants","[]");
+
             post.saveInBackground();
 
             Toast.makeText(this, "The post published successfully", Toast.LENGTH_LONG).show();
